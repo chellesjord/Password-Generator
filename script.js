@@ -86,9 +86,6 @@ var special = function () {
 }
 
 var charactertypeprompts = function () {
-  //showing up as an array, but having trouble referencing it as an array in the generatePassword callback
-  //I tried && and || statements and tried writing them individually with ; between them
-  //When I tried that only one of the four statements would show up
   var passcharacters = lower() + upper() + numeric() + special();
 
   if (passcharacters === null || passcharacters === "" || passcharacters === NaN) {
@@ -124,8 +121,14 @@ function generatePassword() {
   var shuffledMyArray = myArray;
   shuffle(shuffledMyArray);
   console.log(shuffledMyArray);
-}
 
+  //get characters for length requested by user
+  const list = shuffledMyArray;
+  const size = passwordlength;
+  const items = list.slice(0, size);
+  passwordstring = items.join("");
+  return passwordstring
+}
 
 
 // Get references to the #generate element

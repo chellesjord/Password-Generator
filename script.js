@@ -101,19 +101,32 @@ var charactertypeprompts = function () {
   return passcharacters;
 }
 
+
+
 function generatePassword() {
   //function for prompts for password criteria start
   var passwordlength = length();
   //obtain characters based on user preference
   var charcters = charactertypeprompts();
   //make characters into an array
-  const myArray = charcters.split(" ");
-  console.log(myArray);
-  console.log(passwordlength);
+  var myArray = charcters.split(" ");
 
   //randomize numbers from array
-  return myArray[i = randomNumber];
+  function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
+  var shuffledMyArray = myArray;
+  shuffle(shuffledMyArray);
+  console.log(shuffledMyArray);
 }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");

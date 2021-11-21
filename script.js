@@ -6,10 +6,10 @@ var randomNumber = function () {
   return value;
 }
 
-var lowercaseset = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var uppercaseset = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var numericset = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specialset = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", "?", "_", "~", "+"];
+var lowercaseset = ["a b c d e f g h i j k l m n o p q r s t u v w x y z "];
+var uppercaseset = ["A B C D E F G H I J K L M N O P Q R S T U V W X Y Z "];
+var numericset = ["0 1 2 3 4 5 6 7 8 9 "];
+var specialset = ["! @ # $ % ^ & * ( ) _ + { } | : - = [ ] ; ' , . / < > ? ~ "];
 
 //password length question
 var length = function () {
@@ -29,7 +29,6 @@ var length = function () {
     //console.log and alert for password length
     console.log("Password length: " + passwordlength);
     window.alert("You have chosen a password LENGTH of " + passwordlength + " characters long.");
-    return passwordlength
   }
 }
 
@@ -38,13 +37,10 @@ var lower = function () {
   var passwordlowercase = window.confirm("Would you like to include LOWERCASE characters?");
   if (passwordlowercase) {
     console.log("lowercase: " + passwordlowercase);
-    window.alert("You have chosen to include LOWERCASE characters in your password.");
-    return passwordlowercase;
+    return lowercaseset;
   }
   else {
     console.log("lowercase: " + passwordlowercase);
-    window.alert("You have chosen NOT to include LOWERCASE characters in your password.");
-    return false;
   }
 }
 
@@ -53,13 +49,10 @@ var upper = function () {
   var passworduppercase = window.confirm("Would you like to include UPPERCASE characters?");
   if (passworduppercase) {
     console.log("uppercase: " + passworduppercase);
-    window.alert("You have chosen to include UPPERCASE characters in your password.");
-    return passworduppercase;
+    return uppercaseset;
   }
   else {
     console.log("uppercase: " + passworduppercase);
-    window.alert("You have chosen NOT to include UPPERCASE characters in your password.");
-    return false;
   }
 }
 
@@ -68,13 +61,10 @@ var numeric = function () {
   var passwordnumeric = window.confirm("Would you like to include any NUMERIC characters?");
   if (passwordnumeric) {
     console.log("numeric: " + passwordnumeric);
-    window.alert("You have chosen to include NUMERIC characters in your password.");
-    return passwordnumeric;
+    return numericset;
   }
   else {
     console.log("numeric: " + passwordnumeric);
-    window.alert("You have chosen NOT to include NUMERIC characters in your password.");
-    return false;
   }
 }
 
@@ -83,38 +73,38 @@ var special = function () {
   var passwordspecial = window.confirm("Would you like to include any SPECIAL characters?");
   if (passwordspecial) {
     console.log("special: " + passwordspecial);
-    window.alert("You have chosen to include SPECIAL characters in your password.");
-    return passwordspecial;
+    return specialset;
   }
   else {
     console.log("special: " + passwordspecial);
-    window.alert("You have chosen NOT to include SPECIAL characters in your password.");
-    return false;
   }
 }
 
-var questions = function () {
-  var passcharacters = [lower(), upper(), numeric(), special()];
-  //not working but why
-  if (lower === false && upper === false && numeric === false && special === false) {
+var charactertypeprompts = function () {
+  //showing up as an array, but having trouble referencing it as an array in the generatePassword callback
+  //I tried && and || statements and tried writing them individually with ; between them
+  //When I tried that only one of the four statements would show up
+  var passcharacters = lower() + upper() + numeric() + special();
+
+  if (passcharacters === null || passcharacters === "" || passcharacters === NaN) {
     window.alert("You have not chosen any characters for your password. Please try again.");
     generatePassword();
   }
   else {
     window.alert("Thank you for your selections. Your password is being generated...");
   }
-
   return passcharacters;
 }
 
 function generatePassword() {
   //function for prompts for password criteria start
   var passwordlength = length();
-  var charctercheck = questions();
-  console.log(charctercheck);
-  for (var i = 0; i < passwordlength; i++) {
-    console.log("apple");
-  }
+  var charcters = charactertypeprompts();
+  return charcters;
+  //charctercheck =
+  //for (var i = 0; i < length; i++) {
+  // console.log(i++);
+  // }
   //console.log(passwordlength);
   //figure out a way to loop for that password length
   //console.log(charctercheck);
@@ -135,3 +125,7 @@ function writePassword() {
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+//randomly generate character
+

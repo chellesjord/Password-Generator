@@ -2,14 +2,14 @@
 
 //random number generator to pick from array of password settings.
 var randomNumber = function () {
-  var value = Math.floor(Math.random() * 4);
+  var value = Math.floor(Math.random() * 92);
   return value;
 }
 
-var lowercaseset = ["a b c d e f g h i j k l m n o p q r s t u v w x y z "];
-var uppercaseset = ["A B C D E F G H I J K L M N O P Q R S T U V W X Y Z "];
-var numericset = ["0 1 2 3 4 5 6 7 8 9 "];
-var specialset = ["! @ # $ % ^ & * ( ) _ + { } | : - = [ ] ; ' , . / < > ? ~ "];
+var lowercaseset = "a b c d e f g h i j k l m n o p q r s t u v w x y z ";
+var uppercaseset = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ";
+var numericset = "0 1 2 3 4 5 6 7 8 9 ";
+var specialset = "! @ # $ % ^ & * ( ) _ + { } | : - = [ ] ; ' , . / < > ? ~ ";
 
 //password length question
 var length = function () {
@@ -29,6 +29,7 @@ var length = function () {
     //console.log and alert for password length
     console.log("Password length: " + passwordlength);
     window.alert("You have chosen a password LENGTH of " + passwordlength + " characters long.");
+    return passwordlength;
   }
 }
 
@@ -41,6 +42,7 @@ var lower = function () {
   }
   else {
     console.log("lowercase: " + passwordlowercase);
+    return "";
   }
 }
 
@@ -53,6 +55,7 @@ var upper = function () {
   }
   else {
     console.log("uppercase: " + passworduppercase);
+    return "";
   }
 }
 
@@ -65,6 +68,7 @@ var numeric = function () {
   }
   else {
     console.log("numeric: " + passwordnumeric);
+    return "";
   }
 }
 
@@ -77,6 +81,7 @@ var special = function () {
   }
   else {
     console.log("special: " + passwordspecial);
+    return "";
   }
 }
 
@@ -99,17 +104,15 @@ var charactertypeprompts = function () {
 function generatePassword() {
   //function for prompts for password criteria start
   var passwordlength = length();
+  //obtain characters based on user preference
   var charcters = charactertypeprompts();
-  return charcters;
-  //charctercheck =
-  //for (var i = 0; i < length; i++) {
-  // console.log(i++);
-  // }
-  //console.log(passwordlength);
-  //figure out a way to loop for that password length
-  //console.log(charctercheck);
-  //make a randomizer, to pick a number in the array,
-  // if the number in array is false, pick another number;
+  //make characters into an array
+  const myArray = charcters.split(" ");
+  console.log(myArray);
+  console.log(passwordlength);
+
+  //randomize numbers from array
+  return myArray[i = randomNumber];
 }
 
 // Get references to the #generate element
@@ -125,7 +128,3 @@ function writePassword() {
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-//randomly generate character
-

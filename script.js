@@ -120,7 +120,6 @@ function generatePassword() {
   }
   var shuffledMyArray = myArray;
   shuffle(shuffledMyArray);
-  console.log(shuffledMyArray);
 
   //get characters for length requested by user
   const list = shuffledMyArray;

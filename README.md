@@ -8,5 +8,5 @@ If password criteria has been selected, the generate password is written to the 
 
 Code types used: html, css, javascript
 
-<![](.\images\screenshot.JPG)
-<![](.\images\screenshot1.JPG)
+<![](./images/screenshot.JPG)
+<![](./images/screenshot1.JPG)

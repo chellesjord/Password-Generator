@@ -1,8 +1,8 @@
 # Password-Generator
 
-GitHub Link: https://github.com/chellesjord/ProfessionalPortfolio
+GitHub Link: https://github.com/chellesjord/Password-Generator
 
-Deployed Link: https://chellesjord.github.io/ProfessionalPortfolio/
+Deployed Link: https://chellesjord.github.io/Password-Generator/
 
 ## Description
 When user pushes "Generate Password", the user is presented with a series of prompts for password criteria (including password length, lowercase, uppercase, numeric, and/or special characters).
